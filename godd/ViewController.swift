@@ -1,9 +1,5 @@
 //
-//  ViewController.swift
-//  DownloadTask
-//
-//  Created by Emmanuel Okwara on 19/12/2020.
-//
+// 
 
 import UIKit
 import AVKit
