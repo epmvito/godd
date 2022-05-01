@@ -59,9 +59,11 @@ extension ViewController: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
         
+        
         DispatchQueue.main.async { [weak self] in
             self?.progressBar.progress = progress
             self?.progressLbl.text = "\(progress * 100)%"
+            
         }
     }
 }
