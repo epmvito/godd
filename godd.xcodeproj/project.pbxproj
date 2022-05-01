@@ -13,6 +13,7 @@
 		078D975C281EBF5E00B6A368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078D975A281EBF5E00B6A368 /* Main.storyboard */; };
 		078D975E281EBF6300B6A368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078D975D281EBF6300B6A368 /* Assets.xcassets */; };
 		078D9761281EBF6300B6A368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078D975F281EBF6300B6A368 /* LaunchScreen.storyboard */; };
+		C0686585281EC3300021AAA5 /* VideoDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0686584281EC3300021AAA5 /* VideoDownloadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		078D975D281EBF6300B6A368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		078D9760281EBF6300B6A368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		078D9762281EBF6300B6A368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0686584281EC3300021AAA5 /* VideoDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				078D9754281EBF5E00B6A368 /* AppDelegate.swift */,
 				078D9756281EBF5E00B6A368 /* SceneDelegate.swift */,
 				078D9758281EBF5E00B6A368 /* ViewController.swift */,
+				C0686584281EC3300021AAA5 /* VideoDownloadViewController.swift */,
 				078D975A281EBF5E00B6A368 /* Main.storyboard */,
 				078D975D281EBF6300B6A368 /* Assets.xcassets */,
 				078D975F281EBF6300B6A368 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				078D9759281EBF5E00B6A368 /* ViewController.swift in Sources */,
 				078D9755281EBF5E00B6A368 /* AppDelegate.swift in Sources */,
+				C0686585281EC3300021AAA5 /* VideoDownloadViewController.swift in Sources */,
 				078D9757281EBF5E00B6A368 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
