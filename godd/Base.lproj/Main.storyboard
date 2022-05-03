@@ -16,51 +16,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pVN-UL-rKj">
-                                <rect key="frame" x="0.0" y="205" width="414" height="818"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pVN-UL-rKj">
+                                <rect key="frame" x="0.0" y="205" width="414" height="4"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wr-Td-VFe">
-                                <rect key="frame" x="130" y="432" width="89" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-MX-BJj">
+                                <rect key="frame" x="145" y="88" width="110" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07u-aR-1Ip">
+                                <rect key="frame" x="35" y="110" width="59" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Open"/>
+                                <connections>
+                                    <action selector="openBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ddq-Lm-OJ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wr-Td-VFe">
+                                <rect key="frame" x="263" y="110" width="89" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Download"/>
                                 <connections>
                                     <action selector="downloadBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oht-pR-aMN"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zd0-MX-BJj">
-                                <rect key="frame" x="146" y="261" width="110" height="76"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="76" id="CUX-LS-0km"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6x-Yu-Kiu">
-                                <rect key="frame" x="81" y="584" width="240" height="212"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T6x-Yu-Kiu">
+                                <rect key="frame" x="65" y="322" width="287" height="435"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="37T-ZE-sIA"/>
-                                    <constraint firstAttribute="height" constant="212" id="xj1-Dv-eWo"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="pVN-UL-rKj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1eM-vh-3Mh"/>
-                            <constraint firstItem="T6x-Yu-Kiu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="81" id="58q-eW-4jn"/>
-                            <constraint firstItem="zd0-MX-BJj" firstAttribute="top" secondItem="pVN-UL-rKj" secondAttribute="bottom" constant="52" id="8tu-1q-GaD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T6x-Yu-Kiu" secondAttribute="trailing" constant="93" id="P1c-qz-hk7"/>
-                            <constraint firstItem="7wr-Td-VFe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="RKH-JT-tcu"/>
-                            <constraint firstItem="zd0-MX-BJj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="146" id="WWS-NV-Cqk"/>
-                            <constraint firstItem="T6x-Yu-Kiu" firstAttribute="top" secondItem="7wr-Td-VFe" secondAttribute="bottom" constant="120" id="XBx-mq-nQ6"/>
-                            <constraint firstItem="7wr-Td-VFe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bsg-t6-afK"/>
-                            <constraint firstItem="zd0-MX-BJj" firstAttribute="centerX" secondItem="T6x-Yu-Kiu" secondAttribute="centerX" id="mg6-Mb-29d"/>
-                            <constraint firstItem="7wr-Td-VFe" firstAttribute="top" secondItem="zd0-MX-BJj" secondAttribute="bottom" constant="96" id="qiR-a9-lh6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T6x-Yu-Kiu" secondAttribute="bottom" constant="66" id="txF-hG-VW8"/>
-                            <constraint firstItem="pVN-UL-rKj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xnT-Ev-zPZ"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="playerView" destination="T6x-Yu-Kiu" id="AP6-x8-qRQ"/>
