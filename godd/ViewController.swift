@@ -1,134 +1,111 @@
 //
-// wfawfawfftdrxctfvygbhgv
+//  DownloadViewController.swift
+//  godd
+//
+//  Created by мак on 03.05.2022.
+//
 
+import Foundation
 import UIKit
 import AVKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
-    var player: AVPlayer!
-    var playerViewController: AVPlayerViewController!
-    var videoUrl: URL?
-    var resumeData: Data?
-    @IBOutlet weak var playerView: UIView!
-    @IBOutlet weak var progressBar: UIProgressView!    
+    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var progressLbl: UILabel!
     
+    let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let downloadService = DownloadService()
     
+    lazy var downloadsSession: URLSession = {
+        let configuration = URLSessionConfiguration.default
+        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+    }()
+    
+    
+    @IBAction func download(_ sender: Any) {
+       
+        let movie = Movie(url: URL(string: "http://185.162.124.197:80/vteka/00/00/00/52/55.mp4?token=2-vod_28ac203ba05a159784c2cc15de467111")!)
+        downloadService.startDownload(movie)
+    }
+    
+    @IBAction func pause(_ sender: Any) {
+        let movie = Movie(url: URL(string: "http://185.162.124.197:80/vteka/00/00/00/52/55.mp4?token=2-vod_28ac203ba05a159784c2cc15de467111")!)
+        downloadService.pauseDownload(movie)
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
+        let movie = Movie(url: URL(string: "http://185.162.124.197:80/vteka/00/00/00/52/55.mp4?token=2-vod_28ac203ba05a159784c2cc15de467111")!)
+        downloadService.cancelDownload(movie)
+    }
+    
+    @IBAction func resume(_ sender: Any) {
+        let movie = Movie(url: URL(string: "http://185.162.124.197:80/vteka/00/00/00/52/55.mp4?token=2-vod_28ac203ba05a159784c2cc15de467111")!)
+        downloadService.resumeDownload(movie)
+    }
+    
+    @IBAction func play(_ sender: Any) {
+        let movie = Movie(url: URL(string: "http://185.162.124.197:80/vteka/00/00/00/52/55.mp4?token=2-vod_28ac203ba05a159784c2cc15de467111")!)
+        playDownload(movie)
+    }
+    
+    
+    func localFilePath(for url: URL) -> URL {
+      return documentsPath.appendingPathComponent(url.lastPathComponent)
+    }
+    
+    func playDownload(_ movie: Movie) {
+      let playerViewController = AVPlayerViewController()
+      present(playerViewController, animated: true, completion: nil)
+      
+      let url = localFilePath(for: movie.url)
+      let player = AVPlayer(url: url)
+      playerViewController.player = player
+      player.play()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        progressBar.progress = 0
-        
-        
-//        let videoURL = URL(string: "http://185.162.124.197:80/vteka/00/00/00/52/41.mp4?token=2-vod_cfd1cfb0d61d89e8e77c8dfd9a6b862a")
-//                self.player = AVPlayer(url: videoURL!)
-//                self.playerViewController = AVPlayerViewController()
-//                playerViewController.player = self.player
-//                playerViewController.view.frame = self.playerView.frame
-//                playerViewController.player?.pause()
-//                self.playerView.addSubview(playerViewController.view)
+        downloadService.downloadsSession = downloadsSession
     }
-    
- 
-    @IBAction func openBtnClicked(_ sender: Any) {
-        
-        self.player = AVPlayer(url: self.videoUrl!)
-        self.playerViewController = AVPlayerViewController()
-        playerViewController.player = self.player
-        playerViewController.view.frame = self.playerView.frame
-        playerViewController.player?.pause()
-        self.playerView.addSubview(playerViewController.view)
-        
-    }
-    
-    
-    @IBAction func downloadBtnClicked(_ sender: UIButton) {
-        progressLbl.isHidden = false
-        let urlString = "http://144.217.6.186:80/CH71_std/archive-1651514400-2820.mp4?token=1-5f8fbadf1c8e144efc1876a677de8ea1"
-//        let urlString = "http://185.162.124.197:80/vteka/00/00/00/79/85.mp4?token=2-vod_77f1469134287db82fa36f07151d943c"
-//        let urlString = "http://185.162.124.197:80/vteka/00/00/00/32/37.mp4?token=2-vod_0d1021c7ae360346bd94fa6dc023d8be"
-//        let urlString = "http://185.162.124.197:80/vteka/00/00/00/32/39.mp4?token=2-vod_d32a1774e60b4a4f84a65939d89beef9"
-//        let urlString = "https://www.tutorialspoint.com//swift/swift_tutorial.pdf"
-//        let urlString = "https://download.samplelib.com/mp4/sample-20s.mp4"
-
-        guard let url = URL(string: urlString) else {
-            print("This is an invalid URL")
-            return
-        }
-        let session = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-        session.downloadTask(with: url).resume()
-//
-        
-//        let downloadTask = URLSession.shared.downloadTask(with: url) {
-//            urlOrNil, responseOrNil, errorOrNil in
-//            guard let fileURL = urlOrNil else { return }
-//            do {
-//                let documentsURL = try
-//                    FileManager.default.url(for: .documentDirectory,
-//                                            in: .userDomainMask,
-//                                            appropriateFor: nil,
-//                                            create: false)
-//                let savedURL = documentsURL.appendingPathComponent(fileURL.lastPathComponent)
-//                try FileManager.default.moveItem(at: fileURL, to: savedURL)
-//            } catch {
-//                print ("file error: \(error)")
-//            }
-//        }
-//        downloadTask.resume()
-       
-            }
 }
 
-extension ViewController: URLSessionDownloadDelegate {
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print("File Downloaded Location: \(location)")
-//        do {
-//                let documentsURL = try
-//                    FileManager.default.url(for: .documentDirectory,
-//                                            in: .userDomainMask,
-//                                            appropriateFor: nil,
-//                                            create: false)
-//                let savedURL = documentsURL.appendingPathComponent(
-//                    location.lastPathComponent)
-//                try FileManager.default.moveItem(at: location, to: savedURL)
-//                self.videoUrl = savedURL
-//            print("File Local Location:", self.videoUrl ?? "NO")
-//            } catch {
-//                // handle filesystem error
-//            }
-        
-        guard let url = downloadTask.originalRequest?.url else{
-            return
-        }
-        let docsPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-        let destinationPath = docsPath.appendingPathComponent(url.lastPathComponent)
-        try? FileManager.default.removeItem(at: destinationPath)
-        
-        do{
-            try FileManager.default.copyItem(at: location, to: destinationPath)
-            self.videoUrl = destinationPath
-            print("File Local Location:", self.videoUrl ?? "NO")
 
-        }
-        catch let error {
-            print("Copy Error: \(error.localizedDescription)")
-        }
-        
-        
+extension ViewController: URLSessionDownloadDelegate {
+  func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask,
+                  didFinishDownloadingTo location: URL) {
+    // 1
+    guard let sourceURL = downloadTask.originalRequest?.url else {
+      return
     }
     
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.progressBar.progress = progress
-            self?.progressLbl.text = "\(progress * 100)%"
-        }
+    let download = downloadService.activeDownloads[sourceURL]
+    downloadService.activeDownloads[sourceURL] = nil
+    
+    // 2
+    let destinationURL = localFilePath(for: sourceURL)
+    print(destinationURL)
+    
+    // 3
+    let fileManager = FileManager.default
+    try? fileManager.removeItem(at: destinationURL)
+    
+    do {
+      try fileManager.copyItem(at: location, to: destinationURL)
+      download?.movie.downloaded = true
+    } catch let error {
+      print("Could not copy file to disk: \(error.localizedDescription)")
     }
     
+    // 4
+//    if let index = download?.movie.index {
+//      DispatchQueue.main.async { [weak self] in
+//        self?.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+//      }
+//    }
+  }
+  
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         guard let error = error else {
                 // Handle success case.
@@ -136,12 +113,42 @@ extension ViewController: URLSessionDownloadDelegate {
             }
             let userInfo = (error as NSError).userInfo
             if let resumeData = userInfo[NSURLSessionDownloadTaskResumeData] as? Data {
-                self.resumeData = resumeData
+//                self.resumeData = resumeData
+                guard let url = task.originalRequest?.url else{
+                    return
+                }
+                self.downloadService.activeDownloads[url]?.resumeData = resumeData
             }
     }
     
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
-        
-        
+  func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask,
+                  didWriteData bytesWritten: Int64, totalBytesWritten: Int64,
+                  totalBytesExpectedToWrite: Int64) {
+    // 1
+    guard
+      let url = downloadTask.originalRequest?.url,
+      let download = downloadService.activeDownloads[url]  else {
+        return
     }
+    
+    // 2
+    download.progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+    // 3
+    let totalSize = ByteCountFormatter.string(fromByteCount: totalBytesExpectedToWrite, countStyle: .file)
+    
+      
+    let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+    DispatchQueue.main.async { [weak self] in
+          self?.progressBar.progress = progress
+          self?.progressLbl.text = "\(progress * 100)%"
+      }
+
+//    // 4
+//    DispatchQueue.main.async {
+//      if let trackCell = self.tableView.cellForRow(at: IndexPath(row: download.track.index,
+//                                                                 section: 0)) as? TrackCell {
+//        trackCell.updateDisplay(progress: download.progress, totalSize: totalSize)
+//      }
+//    }
+  }
 }

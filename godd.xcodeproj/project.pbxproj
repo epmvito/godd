@@ -9,25 +9,29 @@
 /* Begin PBXBuildFile section */
 		078D9755281EBF5E00B6A368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078D9754281EBF5E00B6A368 /* AppDelegate.swift */; };
 		078D9757281EBF5E00B6A368 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078D9756281EBF5E00B6A368 /* SceneDelegate.swift */; };
-		078D9759281EBF5E00B6A368 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078D9758281EBF5E00B6A368 /* ViewController.swift */; };
+		078D9759281EBF5E00B6A368 /* VViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078D9758281EBF5E00B6A368 /* VViewController.swift */; };
 		078D975C281EBF5E00B6A368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078D975A281EBF5E00B6A368 /* Main.storyboard */; };
 		078D975E281EBF6300B6A368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 078D975D281EBF6300B6A368 /* Assets.xcassets */; };
 		078D9761281EBF6300B6A368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078D975F281EBF6300B6A368 /* LaunchScreen.storyboard */; };
-		C0686585281EC3300021AAA5 /* VideoDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0686584281EC3300021AAA5 /* VideoDownloadViewController.swift */; };
-		C0EC857E282160C9007EA2F6 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC857D282160C9007EA2F6 /* Download.swift */; };
+		C0EC858328216E3C007EA2F6 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC858228216E3C007EA2F6 /* Movie.swift */; };
+		C0EC858528216EF6007EA2F6 /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC858428216EF6007EA2F6 /* Download.swift */; };
+		C0EC858728216F56007EA2F6 /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC858628216F56007EA2F6 /* DownloadService.swift */; };
+		C0EC8589282171EC007EA2F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC8588282171EC007EA2F6 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		078D9751281EBF5E00B6A368 /* godd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = godd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		078D9754281EBF5E00B6A368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		078D9756281EBF5E00B6A368 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		078D9758281EBF5E00B6A368 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		078D9758281EBF5E00B6A368 /* VViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VViewController.swift; sourceTree = "<group>"; };
 		078D975B281EBF5E00B6A368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		078D975D281EBF6300B6A368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		078D9760281EBF6300B6A368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		078D9762281EBF6300B6A368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0686584281EC3300021AAA5 /* VideoDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloadViewController.swift; sourceTree = "<group>"; };
-		C0EC857D282160C9007EA2F6 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		C0EC858228216E3C007EA2F6 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		C0EC858428216EF6007EA2F6 /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		C0EC858628216F56007EA2F6 /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		C0EC8588282171EC007EA2F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +66,15 @@
 			children = (
 				078D9754281EBF5E00B6A368 /* AppDelegate.swift */,
 				078D9756281EBF5E00B6A368 /* SceneDelegate.swift */,
-				078D9758281EBF5E00B6A368 /* ViewController.swift */,
-				C0686584281EC3300021AAA5 /* VideoDownloadViewController.swift */,
+				078D9758281EBF5E00B6A368 /* VViewController.swift */,
 				078D975A281EBF5E00B6A368 /* Main.storyboard */,
 				078D975D281EBF6300B6A368 /* Assets.xcassets */,
 				078D975F281EBF6300B6A368 /* LaunchScreen.storyboard */,
 				078D9762281EBF6300B6A368 /* Info.plist */,
-				C0EC857D282160C9007EA2F6 /* Download.swift */,
+				C0EC858228216E3C007EA2F6 /* Movie.swift */,
+				C0EC858428216EF6007EA2F6 /* Download.swift */,
+				C0EC858628216F56007EA2F6 /* DownloadService.swift */,
+				C0EC8588282171EC007EA2F6 /* ViewController.swift */,
 			);
 			path = godd;
 			sourceTree = "<group>";
@@ -144,11 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				078D9759281EBF5E00B6A368 /* ViewController.swift in Sources */,
+				078D9759281EBF5E00B6A368 /* VViewController.swift in Sources */,
 				078D9755281EBF5E00B6A368 /* AppDelegate.swift in Sources */,
-				C0686585281EC3300021AAA5 /* VideoDownloadViewController.swift in Sources */,
+				C0EC858328216E3C007EA2F6 /* Movie.swift in Sources */,
+				C0EC8589282171EC007EA2F6 /* ViewController.swift in Sources */,
 				078D9757281EBF5E00B6A368 /* SceneDelegate.swift in Sources */,
-				C0EC857E282160C9007EA2F6 /* Download.swift in Sources */,
+				C0EC858528216EF6007EA2F6 /* Download.swift in Sources */,
+				C0EC858728216F56007EA2F6 /* DownloadService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
